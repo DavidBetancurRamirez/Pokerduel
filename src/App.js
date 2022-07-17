@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import { Routes, Route } from 'react-router-dom';
+import Juego from "./components/Juego";
+import Registro from "./components/Registro"
 
-function App() {
+
+const App = () => {  
+  const [jugador1, cambiarJugador1] = useState("")
+  const [jugador2, cambiarJugador2] = useState("")
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route path="/" element={<Registro jugador1={jugador1} cambiarJugador1={cambiarJugador1} jugador2={jugador2} cambiarJugador2={cambiarJugador2} />} />
+      <Route path="/juego" element={<Juego jugador1={jugador1} cambiarJugador1={cambiarJugador1} jugador2={jugador2} cambiarJugador2={cambiarJugador2} />} />
+    </Routes>
   );
 }
-
+ 
 export default App;
