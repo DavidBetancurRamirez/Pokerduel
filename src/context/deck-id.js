@@ -16,9 +16,10 @@ export const DeckProvider = (props) => {
     return <DeckContext.Provider value={value} {...props} />
 }
 
+// con este se accede a las propiedades del proveedor
 export const useDeck = () => {
     const context = React.useContext(DeckContext);
-    if (!context) throw new Error("No hay un proveedor para este contexto")
+    if (!context) throw new Error("No hay un proveedor para este contexto");
 
     return context;
 }

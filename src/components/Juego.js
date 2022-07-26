@@ -62,8 +62,8 @@ const Juego = ({jugador1, jugador2}) => {
     const recibirCartas = (cartas) => {
         cartas.then((resp) => {
 
-            cambiarCartasJugador1([...cartasJugador1, resp[0]])
-            cambiarCartasJugador2([...cartasJugador2, resp[1]])
+            cambiarCartasJugador1([...cartasJugador1, resp[0]]);
+            cambiarCartasJugador2([...cartasJugador2, resp[1]]);
 
         }).catch((error) => console.log(error))
     }
@@ -98,6 +98,7 @@ const Juego = ({jugador1, jugador2}) => {
         cambiarJugando(false);
 
         if (cartas2) {
+            // En caso de haber empate
             cambiarGanador({
                 nombre: "empate",
                 cartasGanadoras: [],
@@ -140,6 +141,7 @@ const Juego = ({jugador1, jugador2}) => {
                 <title>Pokerduel</title>
             </Helmet>
 
+            {/* header */}
             <Jugadores>
                 <div>
                     <p>Jugador 1: {jugador1}</p>
@@ -172,6 +174,7 @@ const Juego = ({jugador1, jugador2}) => {
                 </div>
             </Jugadores>
 
+            {/* ganador */}
             {ganador.hayGanador &&
                 <ContenedorCartas style={{ background: '#009929' }}>
                     <div className="izquierda ganador">
@@ -193,6 +196,7 @@ const Juego = ({jugador1, jugador2}) => {
                 </ContenedorCartas>
             }
 
+            {/* cartas */}
             <ContenedorCartas>
                 <div className="izquierda">
                     <p>Cartas Obtenidas</p>
