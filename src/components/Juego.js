@@ -10,6 +10,7 @@ import {ReactComponent as IconoReiniciar} from '../img/reiniciar.svg'
 import getCartas from "../functions/getCartas";
 import getDeck from "../functions/getDeck";
 import Cartas from "../elements/Cartas";
+import barajar from "../functions/barajar";
 
 
 const Juego = ({jugador1, jugador2}) => {
@@ -31,8 +32,9 @@ const Juego = ({jugador1, jugador2}) => {
         if (!deckId) {
             navigate("/")
         } else {
-            cambiarJugando(true)
-            recibirCartas(getCartas(deckId))
+            cambiarJugando(true);
+            barajar(deckId);
+            recibirCartas(getCartas(deckId));
         }
     }, [deckId, navigate])
 
